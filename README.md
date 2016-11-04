@@ -1,5 +1,3 @@
-Welcome to your new Kafka Connect connector!
-
 # Introduction
 
 This connector is a thin wrapper around [JFairy](https://github.com/Codearte/jfairy) which is a great library for 
