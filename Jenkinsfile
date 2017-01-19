@@ -1,6 +1,10 @@
 #!groovy
 @Library('jenkins-pipeline') import com.github.jcustenborder.jenkins.pipeline.MavenUtilities
 
+properties([
+    buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10'))
+])
+
 node {
     checkout scm
 
