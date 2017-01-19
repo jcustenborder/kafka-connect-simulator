@@ -7,7 +7,7 @@ node {
     stage('build') {
         docker.image(images.jdk8_docker_image).inside {
             configFileProvider([configFile(fileId: 'mavenSettings', variable: 'MAVEN_SETTINGS')]) {
-                def mvn = new MavenUtilities("$MAVEN_SETTINGS", steps)
+                def mvn = new MavenUtilities(steps, "$MAVEN_SETTINGS")
                 mvn.execute('clean package')
             }
             junit '**/target/surefire-reports/TEST-*.xml'
