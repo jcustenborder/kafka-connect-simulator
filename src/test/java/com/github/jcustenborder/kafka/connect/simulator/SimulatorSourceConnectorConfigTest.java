@@ -13,16 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.confluent.kafka.connect.simulator;
+package com.github.jcustenborder.kafka.connect.simulator;
 
 import io.confluent.kafka.connect.utils.config.MarkdownFormatter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class SimulatorConnectorConfigTest {
+
+public class SimulatorSourceConnectorConfigTest {
   @Test
   public void doc() {
     System.out.println(
-        MarkdownFormatter.toMarkdown(SimulatorConnectorConfig.conf())
+        MarkdownFormatter.toMarkdown(SimulatorSourceConnectorConfig.conf())
     );
   }
 }

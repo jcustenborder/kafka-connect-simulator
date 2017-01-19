@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.confluent.kafka.connect.simulator;
+package com.github.jcustenborder.kafka.connect.simulator;
 
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.connect.connector.Task;
@@ -25,9 +25,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class SimulatorConnector extends SourceConnector {
-  private static Logger log = LoggerFactory.getLogger(SimulatorConnector.class);
-  private SimulatorConnectorConfig config;
+public class SimulatorSourceConnector extends SourceConnector {
+  private static Logger log = LoggerFactory.getLogger(SimulatorSourceConnector.class);
+  private SimulatorSourceConnectorConfig config;
 
   @Override
   public String version() {
@@ -39,7 +39,7 @@ public class SimulatorConnector extends SourceConnector {
   @Override
   public void start(Map<String, String> map) {
     this.settings = map;
-    config = new SimulatorConnectorConfig(map);
+    config = new SimulatorSourceConnectorConfig(map);
   }
 
   @Override
@@ -63,6 +63,6 @@ public class SimulatorConnector extends SourceConnector {
 
   @Override
   public ConfigDef config() {
-    return SimulatorConnectorConfig.conf();
+    return SimulatorSourceConnectorConfig.conf();
   }
 }

@@ -46,13 +46,15 @@ generating test data. It will generate data at the rate limit specified in the c
 | companyVATIdentificationNumber  | The VAT identification number for the company of the person. |
 | passportNumber                  | Passport number for the person                               |
 
-
-
-
 # Running in development
 
+```bash
+./bin/debug.sh
 ```
-mvn clean package
-export CLASSPATH="$(find target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
-$CONFLUENT_HOME/bin/connect-standalone $CONFLUENT_HOME/etc/schema-registry/connect-avro-standalone.properties config/MySourceConnector.properties
+
+To suspend until the debugger connects.
+
+```bash
+export SUSPEND='y'
+./bin/debug.sh
 ```

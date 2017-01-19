@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.confluent.kafka.connect.simulator;
+package com.github.jcustenborder.kafka.connect.simulator;
 
 import org.apache.kafka.common.config.AbstractConfig;
 import org.apache.kafka.common.config.ConfigDef;
@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class SimulatorConnectorConfig extends AbstractConfig {
+public class SimulatorSourceConnectorConfig extends AbstractConfig {
 
   public static final String TOPIC_CONFIG = "topic";
   private static final String TOPIC_DOC = "Kafka Topic to write to.";
@@ -55,7 +55,7 @@ public class SimulatorConnectorConfig extends AbstractConfig {
   public final String valueSchemaName;
   public final List<String> valueFields;
 
-  public SimulatorConnectorConfig(Map<String, String> parsedConfig) {
+  public SimulatorSourceConnectorConfig(Map<String, String> parsedConfig) {
     super(conf(), parsedConfig);
     this.topic = getString(TOPIC_CONFIG);
     this.rateLimit = getDouble(RATE_LIMIT_CONFIG);

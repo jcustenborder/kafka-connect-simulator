@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.confluent.kafka.connect.simulator;
+package com.github.jcustenborder.kafka.connect.simulator;
 
 import com.google.common.util.concurrent.RateLimiter;
 import io.codearte.jfairy.Fairy;
@@ -37,7 +37,7 @@ import java.util.TimeZone;
 public class SimulatorSourceTask extends SourceTask {
   static final Logger log = LoggerFactory.getLogger(SimulatorSourceTask.class);
   static final TimeZone UTC = TimeZone.getTimeZone("UTC");
-  SimulatorConnectorConfig config;
+  SimulatorSourceConnectorConfig config;
 
   @Override
   public String version() {
@@ -347,7 +347,7 @@ public class SimulatorSourceTask extends SourceTask {
 
   @Override
   public void start(Map<String, String> map) {
-    this.config = new SimulatorConnectorConfig(map);
+    this.config = new SimulatorSourceConnectorConfig(map);
     this.rateLimiter = RateLimiter.create(this.config.rateLimit);
     this.fairy = Fairy.create();
 

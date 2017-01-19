@@ -13,13 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.confluent.kafka.connect.simulator;
+package com.github.jcustenborder.kafka.connect.simulator;
 
-import org.junit.Test;
+import io.codearte.jfairy.producer.person.Person;
+import org.apache.kafka.connect.data.Struct;
 
-public class SimulatorConnectorTest {
-  @Test
-  public void test() {
-    // Congrats on a passing test!
-  }
+interface StructSetter {
+  void set(Struct struct, Person person);
 }
