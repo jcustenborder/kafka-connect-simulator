@@ -1,13 +1,12 @@
 #!groovy
-node {
-    def jdk8_docker_image = 'maven:3.3.3-jdk-8'
+@Library('jenkins-pipeline') import com.github.jcustenborder.jenkins.pipeline.MavenUtilities
 
+node {
     checkout scm
 
-    docker.image(jdk8_docker_image).inside {
-        stage('build') {
-            sh "mvn --batch-mode clean package"
-            junit '**/target/surefire-reports/TEST-*.xml'
-        }
+    docker.image(images.jdk8_docker_image).inside {
+        def mvn = new MavenUtilities(steps)
+        mvn.execute('clean package')
+        junit '**/target/surefire-reports/TEST-*.xml'
     }
 }
