@@ -71,9 +71,9 @@ public class SimulatorSourceConnectorConfig extends AbstractConfig {
         .define(TOPIC_CONFIG, Type.STRING, Importance.HIGH, TOPIC_DOC)
         .define(RATE_LIMIT_CONFIG, Type.DOUBLE, 100D, Importance.MEDIUM, RATE_LIMIT_DOC)
         .define(BATCH_SIZE_CONFIG, Type.INT, 100, ConfigDef.Range.atLeast(1), Importance.MEDIUM, BATCH_SIZE_DOC)
-        .define(KEY_SCHEMA_NAME_CONFIG, Type.STRING, "io.confluent.example.simulator.PersonKey", Importance.MEDIUM, KEY_SCHEMA_NAME_DOC)
+        .define(KEY_SCHEMA_NAME_CONFIG, Type.STRING, "com.github.jcustenborder.kafka.connect.simulator.PersonKey", Importance.MEDIUM, KEY_SCHEMA_NAME_DOC)
         .define(KEY_SCHEMA_FIELDS_CONFIG, Type.LIST, Importance.HIGH, KEY_SCHEMA_FIELDS_DOC)
-        .define(VALUE_SCHEMA_NAME_CONFIG, Type.STRING, "io.confluent.example.simulator.Person", Importance.MEDIUM, VALUE_SCHEMA_NAME_DOC)
+        .define(VALUE_SCHEMA_NAME_CONFIG, Type.STRING, "com.github.jcustenborder.kafka.connect.simulator.Person", Importance.MEDIUM, VALUE_SCHEMA_NAME_DOC)
         .define(VALUE_SCHEMA_FIELDS_CONFIG, Type.LIST, Importance.HIGH, VALUE_SCHEMA_FIELDS_DOC);
   }
 }
