@@ -5,17 +5,45 @@ generating test data. It will generate data at the rate limit specified in the c
 
 # Configuration
 
-| Name                | Description                                | Type   | Default                                  | Valid Values | Importance |
-|---------------------|--------------------------------------------|--------|------------------------------------------|--------------|------------|
-| key.schema.fields   | Fields for the key schema.                 | list   |                                          |              | high       |
-| topic               | Kafka Topic to write to.                   | string |                                          |              | high       |
-| value.schema.fields | Fields for the value schema.               | list   |                                          |              | high       |
-| batch.size          | Number of records to be written per batch. | int    | 100                                      | [1,...]      | medium     |
-| key.schema.name     | Name for the key schema.                   | string | io.confluent.example.simulator.PersonKey |              | medium     |
-| rate.limit          | Rate to write items to kafka.              | double | 100.0                                    |              | medium     |
-| value.schema.name   | Name for the value schema.                 | string | io.confluent.example.simulator.Person    |              | medium     |
+## SimulatorSinkConnector
 
-# Fields
+```properties
+name=connector1
+tasks.max=1
+connector.class=com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector
+
+# Set these required values
+```
+
+| Name        | Description                   | Type    | Default | Valid Values | Importance |
+|-------------|-------------------------------|---------|---------|--------------|------------|
+| log.entries | Flag to determine if          | boolean | false   |              | medium     |
+| rate.limit  | Rate to write items to kafka. | double  | 100.0   |              | medium     |
+
+## SimulatorSourceConnector
+
+```properties
+name=connector1
+tasks.max=1
+connector.class=com.github.jcustenborder.kafka.connect.simulator.SimulatorSourceConnector
+
+# Set these required values
+value.schema.fields=
+key.schema.fields=
+topic=
+```
+
+| Name                | Description                                | Type   | Default                                                    | Valid Values | Importance |
+|---------------------|--------------------------------------------|--------|------------------------------------------------------------|--------------|------------|
+| key.schema.fields   | Fields for the key schema.                 | list   |                                                            |              | high       |
+| topic               | Kafka Topic to write to.                   | string |                                                            |              | high       |
+| value.schema.fields | Fields for the value schema.               | list   |                                                            |              | high       |
+| batch.size          | Number of records to be written per batch. | int    | 100                                                        | [1,...]      | medium     |
+| key.schema.name     | Name for the key schema.                   | string | com.github.jcustenborder.kafka.connect.simulator.PersonKey |              | medium     |
+| rate.limit          | Rate to write items to kafka.              | double | 100.0                                                      |              | medium     |
+| value.schema.name   | Name for the value schema.                 | string | com.github.jcustenborder.kafka.connect.simulator.Person    |              | medium     |
+
+### Fields
 
 | Name                            | Description                                                  |
 |---------------------------------|--------------------------------------------------------------|
