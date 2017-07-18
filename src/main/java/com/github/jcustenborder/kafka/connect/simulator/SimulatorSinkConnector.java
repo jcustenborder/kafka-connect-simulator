@@ -19,53 +19,51 @@ import com.github.jcustenborder.kafka.connect.utils.VersionUtil;
 import com.github.jcustenborder.kafka.connect.utils.config.Description;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.connect.connector.Task;
-import org.apache.kafka.connect.source.SourceConnector;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.kafka.connect.sink.SinkConnector;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@Description("The SimulatorSourceConnector is used to write data to a topic at the configured rate.")
-public class SimulatorSourceConnector extends SourceConnector {
-  private static Logger log = LoggerFactory.getLogger(SimulatorSourceConnector.class);
-  private SimulatorSourceConnectorConfig config;
-
+@Description("The SimulatorSinkConnector is used to read data from a topic at the configured rate.")
+public class SimulatorSinkConnector extends SinkConnector {
   @Override
   public String version() {
     return VersionUtil.version(this.getClass());
   }
 
+  SimulatorSinkConnectorConfig config;
   Map<String, String> settings;
 
   @Override
-  public void start(Map<String, String> map) {
-    this.settings = map;
-    config = new SimulatorSourceConnectorConfig(map);
+  public void start(Map<String, String> settings) {
+    this.settings = settings;
+    this.config = new SimulatorSinkConnectorConfig(settings);
   }
 
   @Override
   public Class<? extends Task> taskClass() {
-    return SimulatorSourceTask.class;
+    return SimulatorSinkTask.class;
   }
 
   @Override
-  public List<Map<String, String>> taskConfigs(int count) {
+  public List<Map<String, String>> taskConfigs(int taskCount) {
     List<Map<String, String>> configs = new ArrayList<>();
 
-    for (int i = 0; i < count; i++) {
+    for (int i = 0; i < taskCount; i++) {
       configs.add(this.settings);
     }
+
     return configs;
   }
 
   @Override
   public void stop() {
+
   }
 
   @Override
   public ConfigDef config() {
-    return SimulatorSourceConnectorConfig.conf();
+    return SimulatorSinkConnectorConfig.conf();
   }
 }

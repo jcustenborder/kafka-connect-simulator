@@ -22,7 +22,7 @@
     <parent>
         <groupId>com.github.jcustenborder.kafka.connect</groupId>
         <artifactId>kafka-connect-parent</artifactId>
-        <version>0.10.1.0-cp1</version>
+        <version>0.10.2.1-cp2</version>
     </parent>
 
     <groupId>com.github.jcustenborder.kafka.connect</groupId>
@@ -34,13 +34,6 @@
     <description>A Kafka Connect connector for generating test data.</description>
 
     <url>https://github.com/jcustenborder/kafka-connect-simulator</url>
-
-    <repositories>
-        <repository>
-            <id>confluent</id>
-            <url>http://packages.confluent.io/maven/</url>
-        </repository>
-    </repositories>
 
     <licenses>
         <license>
@@ -76,6 +69,12 @@
             <groupId>io.codearte.jfairy</groupId>
             <artifactId>jfairy</artifactId>
             <version>0.5.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 </project>
