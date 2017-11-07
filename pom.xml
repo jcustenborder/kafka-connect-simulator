@@ -1,69 +1,45 @@
-<!--
-
-    Copyright © 2016 Jeremy Custenborder (jcustenborder@gmail.com)
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
--->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.github.jcustenborder.kafka.connect</groupId>
         <artifactId>kafka-connect-parent</artifactId>
-        <version>0.10.2.1-cp2</version>
+        <version>1.0.0</version>
     </parent>
-
-    <groupId>com.github.jcustenborder.kafka.connect</groupId>
     <artifactId>kafka-connect-simulator</artifactId>
     <version>0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <inceptionYear>2016</inceptionYear>
     <name>kafka-connect-simulator</name>
     <description>A Kafka Connect connector for generating test data.</description>
-
     <url>https://github.com/jcustenborder/kafka-connect-simulator</url>
-
+    <inceptionYear>2016</inceptionYear>
     <licenses>
         <license>
-            <name>The Apache License, Version 2.0</name>
-            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+            <name>Apache License 2.0</name>
+            <url>https:/github.com/jcustenborder/kafka-connect-simulator/LICENSE</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
-
     <developers>
         <developer>
             <id>jcustenborder</id>
             <name>Jeremy Custenborder</name>
-            <email>jcustenborder@gmail.com</email>
-            <timezone>America/Chicago</timezone>
+            <url>https://github.com/jcustenborder</url>
+            <roles>
+                <role>Committer</role>
+            </roles>
         </developer>
     </developers>
-
-
     <scm>
-        <url>https://github.com/jcustenborder/kafka-connect-simulator</url>
         <connection>scm:git:https://github.com/jcustenborder/kafka-connect-simulator.git</connection>
-        <developerConnection>scm:git:git://git@github.com:jcustenborder/kafka-connect-simulator.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:jcustenborder/kafka-connect-simulator.git</developerConnection>
+        <url>https://github.com/jcustenborder/kafka-connect-simulator</url>
     </scm>
-
     <issueManagement>
-        <url>https://github.com/jcustenborder/kafka-connect-simulator/issues</url>
         <system>github</system>
+        <url>https://github.com/jcustenborder/kafka-connect-simulator/issues</url>
     </issueManagement>
-
     <dependencies>
         <dependency>
             <groupId>io.codearte.jfairy</groupId>
@@ -71,8 +47,8 @@
             <version>0.5.3</version>
             <exclusions>
                 <exclusion>
-                    <groupId>junit</groupId>
                     <artifactId>junit</artifactId>
+                    <groupId>junit</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
