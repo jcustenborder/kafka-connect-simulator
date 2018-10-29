@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.jcustenborder.kafka.connect</groupId>
         <artifactId>kafka-connect-parent</artifactId>
-        <version>1.0.0</version>
+        <version>2.0.0-cp1</version>
     </parent>
     <artifactId>kafka-connect-simulator</artifactId>
     <version>0.1-SNAPSHOT</version>
@@ -53,4 +53,26 @@
             </exclusions>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.confluent</groupId>
+                <artifactId>kafka-connect-maven-plugin</artifactId>
+                <configuration>
+                    <confluentControlCenterIntegration>true</confluentControlCenterIntegration>
+                    <documentationUrl>https://jcustenborder.github.io/kafka-connect-documentation/</documentationUrl>
+                    <tags>
+                        <tag>Simulator</tag>
+                    </tags>
+                    <componentTypes>
+                        <componentType>sink</componentType>
+                        <componentType>source</componentType>
+                    </componentTypes>
+                    <title>Kafka Connect Simulator</title>
+                    <supportUrl>${pom.issueManagement.url}</supportUrl>
+                    <supportSummary>Support provided through community involvement.</supportSummary>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
