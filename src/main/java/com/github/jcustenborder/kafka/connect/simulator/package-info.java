@@ -13,10 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@Introduction("This plugin is used to simulate data written to Kafka or read from Kafka " +
+    "persisted to another system.")
+@Title("Simulator")
+@PluginOwner("jcustenborder")
+@PluginName("kafka-connect-simulator")
 package com.github.jcustenborder.kafka.connect.simulator;
 
-import com.github.jcustenborder.kafka.connect.utils.BaseDocumentationTest;
-
-public class DocumentationTest extends BaseDocumentationTest {
-
-}
+import com.github.jcustenborder.kafka.connect.utils.config.Introduction;
+import com.github.jcustenborder.kafka.connect.utils.config.PluginName;
+import com.github.jcustenborder.kafka.connect.utils.config.PluginOwner;
+import com.github.jcustenborder.kafka.connect.utils.config.Title;

@@ -4,7 +4,10 @@
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
         </encoder>
     </appender>
+
     <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
+    <logger name="org.reflections.Reflections" level="ERROR" />
+    <logger name="com.github.jcustenborder.kafka.connect.simulator" level="TRACE" />
 </configuration>
